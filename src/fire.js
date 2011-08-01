@@ -27,49 +27,63 @@ var DEBUG = 0;
 
 var transparent = 1;
 var mWidth = 50;
-var mHeight= 40;
+var mHeight = 40;
 var buffer = [];
 
 var paletteSet = ",;+ltgti!lI?/\\|)(1}{][rcvzjftJUOQocxfXhqwWB8&%$#@"
 var palette = "";
 var palSize = 0;
-var fireHeight= mHeight;
+var fireHeight = mHeight;
 
-var isInitiated=0;
+var isInitiated = 0;
 
-function setupFire(width, height) // minimum values = 3
+/*
+	Initialization
+*/
+
+function ascf_setup(width, height) // minimum values = 3
 {
 	mWidth = width || mWidth;
 	mHeight = height || mHeight;
-	isInitiated=0;
+	isInitiated = 0;
 }
 
-function reversePalette()
+/* 
+	Customizing utils
+*/
+
+function ascf_reverse_palette()
 {
-	palette = palette.split("").reverse().join("");
+	paletteSet = paletteSet.split("").reverse().join("");
 }
 
-function setTransparency(setting)
+function ascf_set_transparency(flg)
 {
-	transparent=setting;
+	transparent = flg;
 }
 
-function seedPalette()
+function ascf_set_palette(pstr)
+{
+	paletteSet = pstr;
+}
+
+function ascf_seed_palette()
 {
 	if(transparent)
 		palette = " ";
 	else
 		palette = "";
 
-	var palSetSize=paletteSet.length-1;
+	var palSetSize = paletteSet.length-1;
 	var _step = 1;
 
-	for (var i=0; i < ( (mWidth*_step)>palSetSize?palSetSize:mWidth) ; i+=_step)
+	for (var i = 0; i < ((mWidth*_step)>palSetSize?palSetSize:mWidth); i += _step)
 	{
 		palette += paletteSet[i];
 	}
-	palette= palette.split("");
-	palSize= palette.length-1;
+
+	palette = palette.split("");
+	palSize = palette.length-1;
 
 	if (DEBUG)
 	{
@@ -78,32 +92,33 @@ function seedPalette()
 	}
 }
 
-function initiate()
-{
-	// initiate the buffer
-	for (i = 0; i <= mWidth*mHeight; i++) buffer[i]=0;	
-	// initiate the pallete
-	seedPalette();
-	// change state
-	isInitiated=1;
-}
+/*
+	Main loop
+*/
 
-function fire()
+function ascf_render()
 {
 	
-	if (isInitiated==0)
+	if (isInitiated == 0)
 	{
-		initiate();
+		// initiate the buffer
+		for (i = 0; i < mWidth*mHeight+1; i++) buffer[i]=0;	
+		// initiate the palette
+		palette=paletteSet;
+		ascf_seed_palette();
+		// change state
+		isInitiated=1;
 	}
 
 	// define temporary screen buffer
 	var screenb = "";
-	var average=0;
+	var average = 0;
 	// randomize base - fuel the fire
 	for (i = 0; i < Math.floor(mWidth/3); i++)
 		buffer[Math.floor(Math.random() * mWidth) + mWidth * (mHeight-1)] = Math.floor(Math.random()*palSize);
 	for (i = 0; i < Math.floor(mWidth/2); i++)
 		buffer[Math.floor(Math.random() * mWidth) + mWidth * (mHeight-1)] = 0;
+
 	for (i = 0; i < mWidth*(mHeight-1); i++)
 	{
 		//Smoothen the pixel values
@@ -112,10 +127,10 @@ function fire()
 		buffer[i] = Math.floor(average);
 		// pass the pixel to the screen buffer
 		screenb += palette[buffer[i]>palSize?palSize:buffer[i]];
-		if (i % mWidth == 0)
+		if ((i+1) % mWidth == 0)
 			screenb += "\n";
 	}
 	document.getElementById("fire").firstChild.data = screenb;
 
-	setTimeout(fire, 30);
+	setTimeout(ascf_render, 30);
 }

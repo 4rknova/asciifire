@@ -12,10 +12,18 @@ Usage
 To use the script in your web page:
 1. Include the script in your source.
 2. Place a <pre id="fire">Loading...</pre> tag where you want the effect to appear.
-3. Call the setupFire(width, height) function to setup the effect.
-4. Call the fire() function to initiate the animation.
+3. Call the ascf_setup(width, height) function to setup the effect.
+4. Call the ascf_render() function to initiate the animation.
 
-Optionally you can:
-1. Use the reversePalette() to reverse the palette.
-2. Use the setTransparency(setting) to control the transparency.
+There are some functions that can be used to change the behaviour of the effect. For 
+more on this please consult the source code.
+
+Palette
+-------
+If you choose to use a custom palette you should take into consideration that
+a good palette is vital to the quality of the effect. Below are some tested 
+palettes that produce nice results.
+
+1. ,;+ltgti!lI?/\\|)(1}{][rcvzjftJUOQocxfXhqwWB8&%$#@
+2. .,:<cox€Ihqw?\\1[{CLPJUTOQXBFWX8634&%$#ô@©¶Æ‰
 
