@@ -5,7 +5,7 @@
 //	Papadopoulos Nikos
 //	Email: nikpapas[at]gmail[dot]com
 //
-//	Copyright 2010.
+//	Copyright 2009.
 //	All rights reserved.
 //
 //

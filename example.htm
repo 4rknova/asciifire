@@ -7,18 +7,52 @@
 			body
 			{
 				background-color: #000000;
-				color: #ff0000;
-				font-size: 0.75em;
+				color: #cccccc;
+				font-size: 1.0em;
 			}
+
 			pre
 			{
+				font-family: arial, sans-serif
 				display: block;
-				height: 90%;
-				vertical-align: middle;
+				vertical-align: bottom;
+				font-size: 0.75em;
+				color: #ff0000;
+				width: 600px;
+				text-shadow:0px 0px 2px rgba(255,255,120,0.9);
+				background: -moz-linear-gradient(top, rgba(210,3,36,0.8), rgba(10,83,156, 0));
+				background: -webkit-linear-gradient(top, rgba(210,3,36,0.8), rgba(10,83,156, 0));
+				padding-left: 10px;
+				padding-right: 10px;
+				padding-bottom: 10px;
 			}
+
 			h1
 			{
+				font-family: arial, sans-serif;
 				font-size: 1.75em;
+				color: #000000;
+				background:#0A539C; 
+				text-shadow:0px 1px 0px rgba(255,255,255,0.1);
+				width: 600px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			p
+			{
+				display: block;
+				text-align: justify;
+				color: #BFA475;
+				width: 580px;
+				border: solid 1px;
+				border-color: #0A539C #0A539C #0A539C #0A539C;
+				padding-top: 20px;
+				padding-bottom: 20px;
+				padding-left: 20px;
+				padding-right: 20px;
 			}
 		</style>
 	</head>
@@ -26,12 +60,28 @@
 		<center>
 
 			<h1>ASCII FIRE EFFECT</h1>
+			<p>
+				This is just an example of how the script can be integrated in a page.
+			</p>
 			<pre id="fire">Loading...</pre>
 			<script type="text/javascript">
-				ascf_set_palette(".,:<cox€Ihqw?\\1[{CLPJUTOQXBFWX8634&%$#ô@©¶Æ‰"); // Set a custom palette
 				ascf_setup(100,25); // setup the environment
 				ascf_render(); // render
 			</script>
+
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi tellus, porttitor at luctus et, 
+				pulvinar eget lectus. Morbi id diam massa. Maecenas vulputate molestie lorem non hendrerit. Sed ullamcorper 
+				urna sed quam mollis sed pharetra mauris commodo. Nunc vitae interdum justo. Cras vel metus quam. Pellentesque 
+				sed odio interdum odio consectetur molestie imperdiet vel leo. Suspendisse eu leo metus, at semper erat. Fusce 
+				congue elit quis velit cursus id laoreet mauris hendrerit. Mauris mauris ante, mollis in posuere nec, varius 
+				ac eros. Aenean eget faucibus arcu. Quisque elementum iaculis urna, quis molestie quam ultricies in. Sed aliquam 
+				blandit pretium. Fusce pulvinar imperdiet nisi nec placerat. Mauris in nisl a lacus placerat condimentum et 
+				id urna. Nam sed nibh a neque mattis viverra. Fusce commodo magna eu est venenatis malesuada. Etiam diam eros, 
+				rutrum quis dignissim at, lacinia non nibh. Duis ultrices felis urna, vel sodales arcu. Nullam porta, justo ac 
+				venenatis sodales, erat enim malesuada sapien, sed vestibulum tellus enim nec ligula.
+			</p>
+
 		</center>
 	</body>
 </html>
