@@ -1,0 +1,19 @@
+asciifire
+---------
+Copyright 2009 (c) Papadopoulos Nikos <nikpapas@gmail.com>
+
+About
+-----
+asciifire is the classic fire effect, implemented in javascript.
+It renders the flames in ascii text.
+
+Usage
+-----
+Include the script in your page, place a <pre id="fire"></pre> tag 
+in your page source and call the fire() function. To setup the effect 
+use the following functions:
+
+* setupFire(width, height) : Sets the width and height
+* reversePalette()         : Reverses the pallet
+* setTransparency(setting) : Controls the transparency. Expects 0 or 1.
+
